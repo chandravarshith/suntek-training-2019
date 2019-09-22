@@ -1,0 +1,355 @@
+//1. Given an array count the occurrence of an element in that array, if it is not 
+present return -1
+#include<stdio.h>
+int count(int* a, int n,int e)
+{
+        int i,count=0;
+        for(i=0;i<n;i++)
+    {
+        if(a[i]==e)
+        {
+                count++;
+            
+        }
+    }
+    return count;
+}
+int main()
+{
+    int a[100],n,i,e;
+    
+    scanf("%d\n",&n);
+    
+    for(i=0;i<n;i++)
+    {
+            scanf("%d ",&a[i]);
+    }
+        
+    
+    scanf("\n%d",&e);
+    
+if(count(a,n,e)==0)
+     printf("-1");
+else
+      printf("%d",count(a,n,e));
+return 0;
+}
+
+
+
+//2. Given an array count the occurrence of all element in that array, if array is empty return -1
+#include<stdio.h>
+int count(int* a,int n,int d)
+{
+        int i,count=0;
+        for(i=0;i<n;i++)
+            {
+        if(a[i]==d)
+        {
+                count++;
+        }
+            
+       }
+     return count;
+}
+int main()
+{
+        int n, a[100],b[100],i, j, k=0;
+        scanf("%d\n",&n);
+        for(i=0;i<n;i++)
+        {
+                scanf("%d ",&a[i]);
+        }
+        for(i=0;i<n;i++)
+        {
+                for(j=0;j<k;j++)
+                {
+                        if(a[i]==b[j])
+                        {
+                                break;
+                        }
+                }
+                if(j==k)
+                {
+                        b[k]=a[i];
+                        k++;
+                }
+        }
+        for(i=0;i<k;i++)
+        {
+                printf("%d = %d, ",b[i],count(a,n,b[i]));
+        }
+        return 0;
+}
+
+
+
+
+//3. Program to create a Student structure array, pass it to function, print that array in that function
+#include <stdio.h>
+#include <string.h>
+ 
+struct student 
+{
+     char name[30];
+     int rollNum;
+};
+ 
+int main() 
+{
+     int i;
+     struct student record;
+ 
+    
+     strcpy(record.name, "varshith");
+     record.rollNum = 217;
+ 
+     printf("  RECORD OF STUDENT : \n" );
+     printf(" Name is: %s \n", record.name);
+     printf(" rollNum is: %d\n\n",record.rollNum);
+    
+     return 0;
+}
+    
+    
+    
+//4. Find the reverse of the number
+#include<stdio.h>
+int rev(int n)
+{
+    int rem, rev=0;
+    while(n!=0)
+    {
+        rem=n%10;
+        n=n/10;
+        rev=rev*10+rem;
+    }
+    return rev;
+}
+int main()
+{
+    int n;
+    printf("Enter any number : ");
+    scanf("%d",&n);
+    printf("reverse of the number : %d ",rev(n));
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+5. To find whether the substring is present in the string:
+#include<stdio.h> 
+int main()
+{
+    char str[80], substr[10];
+    int count1 = 0, count2 = 0, i, j, flag;
+    gets(str);
+    gets(substr);
+    while (str[count1] != '\0')
+        count1++;
+    while (substr[count2] != '\0')
+        count2++;
+    for (i = 0; i <= count1 - count2; i++)
+    {
+        for (j = i; j < i + count2; j++)
+        {
+            flag = 1;
+            if (str[j] != substr[j - i])
+            {
+                flag = 0;
+                break;
+            }
+        }
+        if (flag == 1)
+            break;
+    }
+    if (flag == 1)
+        printf("Present ");
+    else
+        printf("Not Present");
+ 
+    return 0;
+}
+
+
+
+
+
+
+//7. Print Patterns
+      a. Triangle
+#include<stdio.h>
+int main()
+{
+  int n, i, j, space, count = 1
+  scanf("%d", &n);
+  space = n;
+  for (i = 1; i <= n; i++)
+  {
+    for (j = 1; j < space; j++)
+      printf(" ");
+ 
+    for (j = 1; j <= c; j++)
+    {
+      printf("*");
+ 
+      if (c > 1 && count < c)
+      {
+        printf("A");
+        count++;
+      }
+    }
+ 
+    printf("\n");
+    space--;
+    count = 1;
+  }
+  return 0;
+  
+  
+  
+  
+  
+  
+  
+  
+b. Inverted triangle
+
+#include<stdio.h>
+int main()
+{
+  int n, i, j, k, space, count;
+  scanf("%d", &n);
+  space = 1;
+  count = n+n;
+  for (i = n; i > 0; i--)
+  {
+    for (k = 1; k < space; k++)
+      printf(" ");
+ 
+    for (j = 1; j <= c; j++)
+    {
+      printf("*");
+ 
+      if (c > 1 && count > c)
+      {
+        printf(" ");
+        count--;
+      }
+    }
+ 
+    printf("\n");
+    space++;
+    count = n+n;
+  }
+  return 0;
+}
+
+
+
+
+
+
+
+
+C. Cross inside a box
+
+#include<stdio.h>
+int main()
+{
+    int i,j,n;
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)
+    {
+        for(j=1;j<=n;j++)
+        {
+            if(i-j==1 || j-i==1)
+            {
+                    if(i+j==n || i+j==n+2)
+                    {
+                            printf("  ");
+                            continue;
+                    }
+            }
+            printf("* ");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
+
+
+
+
+
+//8. Given an array, find the nth max element
+Input : 5 // size of array
+            5 4 3 1 2 //array elements
+            4 //th max element
+Output : 2
+Code : 
+ #include<stdio.h>
+int* sort(int* a, int n)
+{
+        int i, j, temp;
+        for(i=n-1;i>0;i--)
+    {
+        for(j=0;j<i;j++)
+        {
+            if(a[j]>a[j+1])
+            {
+                temp=a[j];
+                a[j]=a[j+1];
+                a[j+1]=temp;
+            }
+        }
+    }
+    return a;
+}
+int main()
+{
+    int a[1000],n,i,k;
+    int* b;
+    scanf("%d\n",&n);
+    for(i=0;i<n;i++)
+    {
+            scanf("%d ",&a[i]);
+    }
+    scanf("\n%d",&k);
+    b=sort(a,n);
+    printf("%d",b[n-k]);
+  return 0; 
+}
+
+
+
+
+
+
+
+
+
+//9. Print n table
+#include<stdio.h>
+int mul(int n, int i)
+{
+        int mul;
+        mul=n*i;
+        return mul;
+}
+int main()
+{
+        int n, i;
+        scanf("%d",&n);
+        for(i=1;i<=10;i++)
+        printf("%d * %d = %d\n",n, i, mul(n,i));
+                return 0;
+}
